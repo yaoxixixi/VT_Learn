@@ -3,7 +3,7 @@
 
 VOID DriverUnload(PDRIVER_OBJECT driver)
 {
-
+    StopVirtualTechnology();
     DbgPrint("Driver is unloading...\r\n");
 }
 
@@ -15,11 +15,11 @@ NTSTATUS
     PUNICODE_STRING RegistryPath
     )
 {
-    __asm int 3
+
     DbgPrint("Driver Entered!\r\n");
 	driver->DriverUnload = DriverUnload;
 
-
+    StartVirtualTechnology();
      
 
 
